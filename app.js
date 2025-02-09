@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 		alertMsg(alertText, 'You must be logged in first')
 	}
 
-	// -------------------------------------------------- Register Logic --------------------------------------------
+	// ---------------------------------------- Register Logic --------------------------------------------
 
 	const registerForm = document.getElementById('register-form')
 
@@ -170,12 +170,12 @@ document.addEventListener('DOMContentLoaded', async function () {
 
 				div.innerHTML = `
         <div class="task-container">
-          <div class="people-list">
+          <div class="task-list">
             <p class="priority">${priority}</p>
             <p class="title"><span>Title: </span>${title}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Deadline: </span>${editDeadline}</p>
             <p class="desc">${description}</p>
           </div>
-          <div class="people-btn">
+          <div class="task-btn">
             <button class="edit-btn" data-id="${_id}"><i class="fa-solid fa-pen-to-square"></i></button>
             <button class="delete-btn" data-id="${_id}"><i class="fa-solid fa-trash"></i></button>
           </div>
@@ -241,6 +241,68 @@ document.addEventListener('DOMContentLoaded', async function () {
 	document.getElementById('high')?.addEventListener('click', highPriority)
 
 	// -------------------------------------------------- Edit Logic --------------------------------------------
+	// const handleEdit = async (id) => {
+	// 	const token = localStorage.getItem('token')
+
+	// 	const response = await fetch(`${url}/tasks/${id}`, {
+	// 		method: 'GET',
+	// 		headers: {
+	// 			Authorization: `Bearer ${token}`,
+	// 			'Content-Type': 'application/json',
+	// 		},
+	// 	})
+
+	// 	const editData = await response.json()
+	// 	editFrame(editData)
+
+	// 	if (!response.ok) {
+	// 		alertMsg(alertText, `No task with id ${id}`)
+	// 	}
+	// }
+
+	// const editFrame = (editData) => {
+	// 	editDiv.innerHTML = ''
+
+	// 	const {
+	// 		task: { _id, title, description, deadline, priority },
+	// 	} = editData
+
+	// 	const newDiv = document.createElement('div')
+	// 	const editDeadline = deadline.split('T')[0]
+
+	// 	newDiv.innerHTML = `
+	// 	<div class="edit-section">
+	// 	<form class="task-form">
+	// 		<h3>${title} :</h3>
+	// 		<select id="edit-priority" name="priority" required>
+	// 				<option value="${priority}" selected>${priority}</option>
+	// 				<option value="low">Low</option>
+	// 				<option value="medium">Medium</option>
+	// 				<option value="high">High</option>
+	// 		</select>
+	// 		<input id="edit-title"  value=${title}>
+	// 		<textarea id="edit-desc" >${description}</textarea>
+	// 		<input id="edit-deadline" value="${editDeadline}" type="date" >
+	// 		</form>
+	// 		<div class="edit-task-btn">
+	// 		<button id="cancel-edit-btn">Cancel</button>
+	// 		<button id="save-edit-btn" data-id="${_id}">Save Changes</button>
+	// 		</div></div>
+	// 	`
+
+	// 	editDiv.style.display = 'block'
+	// 	editDiv.appendChild(newDiv)
+
+	// 	const saveBtn = newDiv.querySelector('#save-edit-btn')
+	// 	if (saveBtn) {
+	// 		saveBtn.addEventListener('click', saveHandleEdit)
+	// 	}
+
+	// 	const cancelBtn = newDiv.querySelector('#cancel-edit-btn')
+	// 	if (cancelBtn) {
+	// 		cancelBtn.addEventListener('click', cancelHandleEdit)
+	// 	}
+	// }
 
 	const handleEdit = async (id) => {
 		const token = localStorage.getItem('token')
@@ -254,14 +316,11 @@ document.addEventListener('DOMContentLoaded', async function () {
 		})
 
 		const editData = await response.json()
-		editFrame(editData)
 
 		if (!response.ok) {
 			alertMsg(alertText, `No task with id ${id}`)
 		}
-	}
 
-	const editFrame = (editData) => {
 		editDiv.innerHTML = ''
 
 		const {
@@ -272,7 +331,8 @@ document.addEventListener('DOMContentLoaded', async function () {
 		const editDeadline = deadline.split('T')[0]
 
 		newDiv.innerHTML = `
-			<form class="task-form">
+		<div class="edit-section">
+		<form class="task-form">
 			<h3>${title} :</h3>
 			<select id="edit-priority" name="priority" required>
 					<option value="${priority}" selected>${priority}</option>
@@ -283,13 +343,14 @@ document.addEventListener('DOMContentLoaded', async function () {
 			<input id="edit-title"  value=${title}>
 			<textarea id="edit-desc" >${description}</textarea>
 			<input id="edit-deadline" value="${editDeadline}" type="date" >
-			<div class="edit-people-btn">
+			</form>
+			<div class="edit-task-btn">
 			<button id="cancel-edit-btn">Cancel</button>
 			<button id="save-edit-btn" data-id="${_id}">Save Changes</button>
-			</div>
-			</form>
+			</div></div>
 		`
 
+		editDiv.style.display = 'block'
 		editDiv.appendChild(newDiv)
 
 		const saveBtn = newDiv.querySelector('#save-edit-btn')
@@ -304,10 +365,12 @@ document.addEventListener('DOMContentLoaded', async function () {
 	}
 
 	const editDiv = document.getElementById('edit-frame')
+	editDiv.style.display = 'none'
 
 	const cancelHandleEdit = (e) => {
 		e.preventDefault()
 		editDiv.innerHTML = ''
+		editDiv.style.display = 'none'
 	}
 
 	// -------------------------------------------------- Save-Edit Logic --------------------------------------------
@@ -349,6 +412,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 		alertMsg(alertTextSuccess, 'Changes Saved')
 
 		editDiv.innerHTML = ''
+		editDiv.style.display = 'none'
 		tasksDisplayed()
 	}
 

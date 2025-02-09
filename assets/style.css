@@ -32,6 +32,7 @@ body {
 
 .container {
 	display: flex;
+	max-width: 1920px;
 }
 
 #searchBar {
@@ -55,7 +56,7 @@ body {
 }
 
 .form-control {
-	width: 15rem;
+	width: 15%;
 	background: #f2f2f2;
 	padding: 2rem;
 	height: 100vh;
@@ -95,8 +96,7 @@ form > textarea {
 
 .display-tasks {
 	padding: 0 2rem;
-	width: 50rem;
-	max-width: 60%;
+	width: 60%;
 }
 
 .filter-section {
@@ -159,16 +159,16 @@ form > textarea {
 .task-container:hover {
 	background: #f2f2f2;
 }
-.task-container:hover .people-btn {
+.task-container:hover .task-btn {
 	display: block;
 }
 
-.people-btn {
+.task-btn {
 	padding-left: 0.5rem;
 	display: none;
 }
 
-.people-list span {
+.task-list span {
 	font-size: 1rem;
 	font-weight: 500;
 }
@@ -193,7 +193,7 @@ form > textarea {
 	font-size: 1.4rem;
 }
 
-.edit-people-btn {
+.edit-task-btn {
 	padding-left: 0.5rem;
 	position: fixed;
 	bottom: 0;
@@ -313,12 +313,74 @@ form {
 	color: #ff3700;
 }
 
+@media screen and (max-width: 1350px) {
+	#cancel-edit-btn,
+	#save-edit-btn {
+		align-self: center;
+		margin: 1rem 0;
+	}
+}
+
 @media screen and (max-width: 770px) {
 	.login-body {
 		display: block;
 	}
 	img {
 		display: none;
+	}
+	.form-control {
+		width: 30%;
+		padding: 0.5rem;
+	}
+	form > select,
+	form > input,
+	form > textarea {
+		margin: 0.1rem 0;
+	}
+
+	.submit-btn {
+		width: 5rem;
+		font-size: 0.8rem;
+	}
+	.filter-btns {
+		flex-direction: column;
+	}
+	.edit-task-btn {
+		display: flex;
+		flex-direction: column;
+	}
+	#cancel-edit-btn,
+	#save-edit-btn {
+		align-self: center;
+		margin: 1rem 0;
+	}
+	#edit-frame {
+		position: fixed;
+		width: 85%;
+		height: 100vh;
+	}
+	.delete-btn:hover,
+	.edit-btn:hover {
+		font-size: 0.8rem;
+	}
+	.delete-btn,
+	.edit-btn {
+		transition: none;
+	}
+	.display-tasks {
+		padding: 0 0.2rem;
+	}
+	.display-tasks h1 {
+		font-size: 1.4rem;
+	}
+	.task-container {
+		padding: 0.5rem;
+	}
+	.task-btn {
+		display: block;
+	}
+	.task-container {
+		display: inline-block;
 	}
 }
 
