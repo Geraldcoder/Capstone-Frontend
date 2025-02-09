@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="assets/style.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Sour+Gummy:wght@303&family=Ubuntu:wght@400;500;700&display=swap"
+			rel="stylesheet" />
+
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+		<title>Register Page</title>
+	</head>
+	<body>
+		<p id="alertText"></p>
+		<p id="alertTextSuccess"></p>
+		<div class="register-body">
+			<div class="text-part">
+				<h1 class="register-header">Welcome...</h1>
+				<form id="register-form" action="submit">
+					<input
+						name="name"
+						class="auth-input"
+						type="text"
+						placeholder="Full name here..." />
+					<input
+						name="email"
+						class="auth-input"
+						type="email"
+						placeholder="Email here..." />
+					<input
+						name="password"
+						class="auth-input"
+						type="password"
+						placeholder="Choose a secure password..." />
+					<button class="auth-btn">Register</button>
+				</form>
+				<p class="auth-bottom">
+					Already A User? Click <a href="login.html">Here</a> to Login
+				</p>
+			</div>
+			<div class="img-part"><img src="assets/imgs/register.avif" alt="" /></div>
+		</div>
+		<script src="app.js"></script>
+	</body>
+</html>

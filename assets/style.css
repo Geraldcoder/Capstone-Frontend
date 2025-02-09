@@ -1,0 +1,348 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Montserrat:wght@300&family=Oswald:wght@500&family=Poppins:wght@400;500;600&family=Quicksand:wght@300&display=swap');
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Ubuntu', sans-serif;
+	font-weight: 200;
+	font-style: normal;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+#alertText {
+	position: fixed;
+	top: 10;
+	left: 50%;
+	transform: translate(-50%);
+	background: #fd3d47;
+	color: #fff;
+	padding: 0.5rem;
+}
+
+#alertTextSuccess {
+	position: fixed;
+	top: 12;
+	left: 50%;
+	transform: translate(-50%);
+	background: #59d193;
+	color: #fff;
+	padding: 0.5rem;
+}
+
+.container {
+	display: flex;
+}
+
+#searchBar {
+	display: flex;
+}
+
+#searchBar button {
+	border: none;
+}
+
+#searchBar button i {
+	color: #8b8b8b;
+}
+
+#searchBar input {
+	border: none;
+	padding: 0.3rem;
+	background: #d0d0d0;
+	border-radius: 0.3rem;
+	width: 100%;
+}
+
+.form-control {
+	width: 15rem;
+	background: #f2f2f2;
+	padding: 2rem;
+	height: 100vh;
+}
+
+.form-control > h3 {
+	text-align: center;
+}
+
+form > select,
+form > input,
+form > textarea {
+	border: 0.1rem solid #dedede;
+	padding: 0.5rem;
+	margin-bottom: 0.5rem;
+	border-radius: 0.3rem;
+}
+
+.submit-btn {
+	padding: 0.5rem;
+	border-radius: 0.2rem;
+	width: 8rem;
+	border: #8c8c8c;
+	background: #8c8c8c;
+	margin-top: 0.5rem;
+	transition: 0.5s all ease;
+}
+
+.submit-btn:hover {
+	background: #606060;
+	color: #fff;
+}
+
+.empty-task {
+	text-align: center;
+}
+
+.display-tasks {
+	padding: 0 2rem;
+	width: 50rem;
+	max-width: 60%;
+}
+
+.filter-section {
+	margin-top: 3rem;
+}
+
+.filter-btns {
+	display: flex;
+}
+
+.filter-btns button {
+	padding: 0.3rem;
+	width: 3.8rem;
+	margin: 0.2rem;
+	border-radius: 0.3rem;
+	border: none;
+}
+
+#low {
+	background: #ffb5b9;
+}
+
+#medium {
+	background: #ffd596;
+}
+
+#high {
+	background: #a9ffe4;
+}
+
+#taskList {
+	overflow-y: scroll;
+	height: 90vh;
+}
+
+#taskList {
+	scrollbar-width: large;
+	scrollbar-color: transparent transparent;
+}
+
+#taskList:hover {
+	scrollbar-color: #dedede transparent;
+}
+
+#add-task {
+	text-align: start;
+}
+
+.task-container {
+	padding: 0 1rem;
+	font-size: 0.8rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-radius: 0.3rem;
+	border-bottom: 0.1rem solid #dedede;
+	transition: all 0.5s ease;
+}
+
+.task-container:hover {
+	background: #f2f2f2;
+}
+.task-container:hover .people-btn {
+	display: block;
+}
+
+.people-btn {
+	padding-left: 0.5rem;
+	display: none;
+}
+
+.people-list span {
+	font-size: 1rem;
+	font-weight: 500;
+}
+
+.delete-btn {
+	border: none;
+	color: #fd3d47;
+	transition: all 0.5s ease;
+}
+
+.delete-btn:hover {
+	font-size: 1.2rem;
+}
+
+.edit-btn {
+	border: none;
+	color: #ffc629;
+	transition: all 0.5s ease;
+}
+
+.edit-btn:hover {
+	font-size: 1.4rem;
+}
+
+.edit-people-btn {
+	padding-left: 0.5rem;
+	position: fixed;
+	bottom: 0;
+	padding-bottom: 2rem;
+	align-self: center;
+}
+
+#cancel-edit-btn {
+	padding: 0.5rem;
+	border-radius: 0.2rem;
+	width: 8rem;
+	border: #8c8c8c;
+	margin-right: 1rem;
+	transition: 0.5s all ease;
+}
+
+#cancel-edit-btn:hover {
+	background: #d0d0d0;
+}
+
+#save-edit-btn {
+	padding: 0.5rem;
+	border-radius: 0.2rem;
+	width: 8rem;
+	margin-left: 1rem;
+	border: #ffc72c;
+	background: #ffc72c;
+	transition: 0.5s all ease;
+}
+
+#save-edit-btn:hover {
+	background: #c39823;
+}
+
+.desc {
+	padding: 0.2rem;
+}
+
+.register-body,
+.login-body {
+	display: flex;
+	justify-content: space-between;
+}
+
+.text-part {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: auto;
+}
+
+.text-part h1 {
+	text-align: center;
+	color: #c07401;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+}
+
+.auth-input {
+	min-width: 50vh;
+	margin-bottom: 0.5rem;
+	font-weight: 800;
+	color: #c07401;
+}
+
+.auth-input:focus {
+	border: #c07401;
+}
+
+.auth-input::placeholder {
+	font-weight: 100;
+	color: #d49c47;
+	font-style: oblique;
+}
+
+.auth-btn {
+	width: 6rem;
+	padding: 0.4rem;
+	border-radius: 0.3rem;
+	align-self: center;
+	font-size: 1rem;
+	margin-top: 1rem;
+	color: #c07401;
+	background: #f6f1e9;
+	border: 0.1rem solid #f6f1e9;
+	transition: all 0.5s ease;
+}
+
+.auth-btn:hover {
+	background: #c07401;
+	color: #fff;
+}
+
+.img-part {
+	height: 100vh;
+	max-width: 50%;
+}
+.img-part img {
+	height: 100%;
+}
+
+.auth-bottom {
+	padding-top: 9rem;
+	color: #c07401;
+}
+
+.auth-bottom a {
+	text-decoration: none;
+	color: #6a3f00;
+	transition: all 0.5s ease;
+}
+
+.auth-bottom a:hover {
+	color: #ff3700;
+}
+
+@media screen and (max-width: 770px) {
+	.login-body {
+		display: block;
+	}
+	img {
+		display: none;
+	}
+}
+
+.sign-out {
+	position: fixed;
+	bottom: 0;
+	margin-bottom: 2rem;
+	border: transparent;
+	margin-right: 2rem;
+	font-weight: 550;
+}
+
+.sign-out i {
+	padding-left: 0.5rem;
+	transition: all 0.5s ease;
+}
+
+.sign-out:hover i,
+.sign-out i:hover {
+	padding-left: 1.2rem;
+}
+
+#edit-frame {
+	background: #dedede;
+	min-width: 20%;
+	padding: 2rem;
+}
